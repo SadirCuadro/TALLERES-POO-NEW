@@ -1,0 +1,94 @@
+class Empresa{
+
+-String nit;
+-String nombre;
+-String telefino;
+-String email;
+-String tipo;
+-String web;
+-String direccion;
+}
+class Proyecto{
+
+-String nombreClave;
+-String denominacion;
+-Date fechaInicio;
+-Date fechaFin;
+-String estado;
+- Empresa empresa;
+- list<Empleado> listaDeEmpleados;
+- Promotor empleadoPromotor;
+- list<Tarea> listaDeTareas;
+}
+
+class Empleado{
+
+#String dni;
+#String nombre;
+#String apellidos;
+#String dirección;
+#String teléfono;
+# String email;
+#Date fechaContrato;
+#Empresa empresa ;
+# list<Proyecto> listaDeProyectos;
+# list<Tarea> listaDeTareas;
+
+}
+class Promotor{
+- list<Empleado> listaDeEmpleados;
+}
+
+class Tarea{
+
+-String descripcion;
+-String tipo;
+-Date fechaInicio Estimado;
+-Date fechalnicioReal;
+-int duracionEstimada;
+-int duracionReal;
+- list<Empleado> listaDeEmpleados;
+- Proyecto proyecto;
+- list<Documeno> listaDeDecumentos;
+}
+class Documento{
+- String codigo;
+- String descripcion;
+- String tipo;
+- Tarea tarea;
+- list<version> listaDeVersiones;
+
+}
+class Version{
+- Date fecha;
+- String descripicion;
+- File archivo;
+- Documento documento;
+}
+class ManoDeObra{
+-Empleado trabajador;
+-Proyecto proyecto;
+- Date FechaInicio;
+- Date FechaFin;
+-String rol;
+}
+class PlanDeTrabajo{
+- Tarea tarea;
+- Empleado trabajador;
+-Date FechaInicio;
+- Date FechaFin;
+- String descripcion;
+}
+
+Empleado "*" -- "1" Empresa : Trabaja
+Empleado <|-- Promotor : Es un 
+Proyecto "*" -- "1" Empresa : Tiene
+Proyecto "*" -- "1" Promotor : Promueve
+Proyecto "1" -- "*" Tarea : Conformado
+
+Tarea "1" -- "*" Documento : Genera
+Documento "1" -- "*" Version : Tiene
+Empleado "*" -- "*" Proyecto : Trabaja
+(Empleado, Proyecto) .. ManoDeObra
+Empleado "*" -- "*" Tarea : Realiza
+(Empleado, Tarea) .. PlanDeTrabajo
