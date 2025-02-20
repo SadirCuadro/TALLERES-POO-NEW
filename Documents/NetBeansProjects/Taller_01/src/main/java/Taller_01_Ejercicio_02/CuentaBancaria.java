@@ -29,7 +29,7 @@ public class CuentaBancaria {
 
     // Método para mostrar detalles de la cuenta usando JOptionPane
     public void Detalles() {
-String mensaje = "Cuenta Bancaria\n" + "Numero de Cuenta: " + numeroCuenta + "\n" + "Saldo: $" + saldo + "\n" + "Tipo de Cuenta: " + tipoCuenta;
+String mensaje = "Cuenta Bancaria\n" + "Numero de Cuenta: " + numeroCuenta + "\n" + "Saldo unico es de: $" + saldo + "\n" + "Tipo de Cuenta: " + tipoCuenta;
         JOptionPane.showMessageDialog(null, mensaje);
     }
 }
